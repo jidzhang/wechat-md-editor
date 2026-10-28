@@ -1,0 +1,29 @@
+# Caddyfile — 部署 wechat-md-editor
+#
+# 没有构建步骤。仓库根目录就是要发布的站点根目录，指过去即可。
+#
+# 本地试跑：caddy run --config Caddyfile --adapter caddyfile
+# 语法检查：caddy validate --config Caddyfile --adapter caddyfile
+#
+# 下面 example.com 换成你的域名，并把 root 改成服务器上的实际路径。
+# 本地想不经 TLS 试：把 example.com 换成 http://localhost:8080
+
+example.com {
+	root * /var/www/wechat-md-editor
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "no-referrer"
+	}
+
+	# 入口页与脚本不缓存，改完刷新就生效
+	@nocache path / /index.html /src/* /vendor/*
+	header @nocache Cache-Control "no-cache"
+
+	file_server
+
+	# 纯前端工具，不存在任何后端接口；挡掉免得被误扫
+	respond /api/* 404
+}

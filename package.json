@@ -1,0 +1,27 @@
+{
+  "name": "wechat-md-editor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local single-page Markdown editor that produces inline-styled HTML for the WeChat official account editor.",
+  "keywords": [
+    "markdown",
+    "wechat",
+    "wechat-official-account",
+    "editor",
+    "html"
+  ],
+  "license": "MIT",
+  "author": "jidzhang",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jidzhang/wechat-md-editor.git"
+  },
+  "homepage": "https://github.com/jidzhang/wechat-md-editor",
+  "scripts": {
+    "test": "node test/render.test.mjs",
+    "serve": "python -m http.server 8788 --bind 127.0.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

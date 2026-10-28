@@ -1,0 +1,16 @@
+# Headless browser profile created by test/shot.mjs and the probes
+test/edge-profile/
+test/edge-profile*/
+
+# Screenshots and probe output
+test/shot-*.png
+test/report.json
+test/style-report.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.log
